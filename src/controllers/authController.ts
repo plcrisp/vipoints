@@ -37,7 +37,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { name, email, password, phone, cep, rank } = req.body;
+    const { name, email, password, user_type, phone, cep, rank } = req.body;
 
     const existingUser = await userRepository.findByEmail(email);
     if (existingUser) {
@@ -51,6 +51,7 @@ export const register = async (req: Request, res: Response) => {
       email,
       password: hashedPassword,
       phone,
+      user_type: user_type || 'CLIENT',
       cep,
       points: 0,
       rank

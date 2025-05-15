@@ -18,6 +18,12 @@ generator erd {
   output   = "./diagram/erd.svg"
 }
 
+enum UserType {
+  CLIENT
+  SELLER
+  ADMIN
+}
+
 enum Discount {
   PERCENTAGE
   VALUE
@@ -40,6 +46,7 @@ model User {
   name               String
   email              String              @unique
   password           String?
+  user_type          UserType            @default(CLIENT)
   phone              String
   cep                String
   points             Int

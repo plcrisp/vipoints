@@ -1,3 +1,9 @@
+enum UserType {
+    CLIENT = "CLIENT",
+    SELLER = "SELLER",
+    ADMIN = "ADMIN"
+}
+
 enum Discount {
     PERCENTAGE = "PERCENTAGE",
     VALUE = "VALUE"
@@ -19,6 +25,8 @@ class User {
   id: string;
   name: string;
   email: string;
+  password: string;
+  user_type: UserType;
   phone: string;
   cep: string;
   points: number;
