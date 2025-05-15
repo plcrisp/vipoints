@@ -1814,6 +1814,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
+    password: string | null
     phone: string | null
     cep: string | null
     points: number | null
@@ -1825,6 +1826,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     email: string | null
+    password: string | null
     phone: string | null
     cep: string | null
     points: number | null
@@ -1836,6 +1838,7 @@ export namespace Prisma {
     id: number
     name: number
     email: number
+    password: number
     phone: number
     cep: number
     points: number
@@ -1859,6 +1862,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    password?: true
     phone?: true
     cep?: true
     points?: true
@@ -1870,6 +1874,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    password?: true
     phone?: true
     cep?: true
     points?: true
@@ -1881,6 +1886,7 @@ export namespace Prisma {
     id?: true
     name?: true
     email?: true
+    password?: true
     phone?: true
     cep?: true
     points?: true
@@ -1979,6 +1985,7 @@ export namespace Prisma {
     id: string
     name: string
     email: string
+    password: string | null
     phone: string
     cep: string
     points: number
@@ -2009,6 +2016,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    password?: boolean
     phone?: boolean
     cep?: boolean
     points?: boolean
@@ -2027,6 +2035,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    password?: boolean
     phone?: boolean
     cep?: boolean
     points?: boolean
@@ -2038,6 +2047,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    password?: boolean
     phone?: boolean
     cep?: boolean
     points?: boolean
@@ -2049,6 +2059,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     email?: boolean
+    password?: boolean
     phone?: boolean
     cep?: boolean
     points?: boolean
@@ -2056,7 +2067,7 @@ export namespace Prisma {
     rank?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "cep" | "points" | "createdAt" | "rank", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "phone" | "cep" | "points" | "createdAt" | "rank", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     loyaltyCard?: boolean | User$loyaltyCardArgs<ExtArgs>
     purchases?: boolean | User$purchasesArgs<ExtArgs>
@@ -2083,6 +2094,7 @@ export namespace Prisma {
       id: string
       name: string
       email: string
+      password: string | null
       phone: string
       cep: string
       points: number
@@ -2520,6 +2532,7 @@ export namespace Prisma {
     readonly id: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
     readonly phone: FieldRef<"User", 'String'>
     readonly cep: FieldRef<"User", 'String'>
     readonly points: FieldRef<"User", 'Int'>
@@ -12581,6 +12594,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     email: 'email',
+    password: 'password',
     phone: 'phone',
     cep: 'cep',
     points: 'points',
@@ -12704,6 +12718,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   /**
    * Field references
    */
@@ -12824,6 +12846,7 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
     phone?: StringFilter<"User"> | string
     cep?: StringFilter<"User"> | string
     points?: IntFilter<"User"> | number
@@ -12841,6 +12864,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    password?: SortOrderInput | SortOrder
     phone?: SortOrder
     cep?: SortOrder
     points?: SortOrder
@@ -12861,6 +12885,7 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
+    password?: StringNullableFilter<"User"> | string | null
     phone?: StringFilter<"User"> | string
     cep?: StringFilter<"User"> | string
     points?: IntFilter<"User"> | number
@@ -12878,6 +12903,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    password?: SortOrderInput | SortOrder
     phone?: SortOrder
     cep?: SortOrder
     points?: SortOrder
@@ -12897,6 +12923,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
+    password?: StringNullableWithAggregatesFilter<"User"> | string | null
     phone?: StringWithAggregatesFilter<"User"> | string
     cep?: StringWithAggregatesFilter<"User"> | string
     points?: IntWithAggregatesFilter<"User"> | number
@@ -13398,6 +13425,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -13415,6 +13443,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -13432,6 +13461,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -13449,6 +13479,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -13466,6 +13497,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -13477,6 +13509,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -13488,6 +13521,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -13994,6 +14028,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -14050,6 +14099,11 @@ export namespace Prisma {
     none?: LogWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type PurchaseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -14070,6 +14124,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     phone?: SortOrder
     cep?: SortOrder
     points?: SortOrder
@@ -14086,6 +14141,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     phone?: SortOrder
     cep?: SortOrder
     points?: SortOrder
@@ -14097,6 +14153,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     phone?: SortOrder
     cep?: SortOrder
     points?: SortOrder
@@ -14125,6 +14182,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -14607,6 +14682,10 @@ export namespace Prisma {
     set?: string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -14893,6 +14972,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -14930,6 +15023,34 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -15349,6 +15470,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15365,6 +15487,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15397,6 +15520,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15413,6 +15537,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15429,6 +15554,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15445,6 +15571,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15477,6 +15604,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15493,6 +15621,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15509,6 +15638,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15525,6 +15655,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15557,6 +15688,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15573,6 +15705,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15589,6 +15722,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15605,6 +15739,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15626,6 +15761,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15642,6 +15778,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15674,6 +15811,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15690,6 +15828,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15717,6 +15856,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15733,6 +15873,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15749,6 +15890,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15765,6 +15907,7 @@ export namespace Prisma {
     id?: string
     name: string
     email: string
+    password?: string | null
     phone: string
     cep: string
     points: number
@@ -15797,6 +15940,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
@@ -15813,6 +15957,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     phone?: StringFieldUpdateOperationsInput | string
     cep?: StringFieldUpdateOperationsInput | string
     points?: IntFieldUpdateOperationsInput | number
