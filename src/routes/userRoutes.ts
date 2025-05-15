@@ -5,8 +5,11 @@ import {
     updateUser, 
     deleteUser
  } from '../controllers/userController';
+import { authenticateToken } from '../middlewares/authMiddleware';
 
 const router = Router();
+
+router.use(authenticateToken);
 
 router.get('/', getAllUsers);
 router.get('/:id', getUserById);
