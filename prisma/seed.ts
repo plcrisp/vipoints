@@ -1,15 +1,21 @@
+import bcrypt from 'bcryptjs';
 import { PrismaClient } from '../generated/prisma';
 
 const prisma = new PrismaClient();
 
 async function main() {
   // Users
+
+  const passwordAlice = await bcrypt.hash('password123', 10);
+  const passwordBob = await bcrypt.hash('password456', 10);
+  const passwordCharlie = await bcrypt.hash('password789', 10);
+
   const users = await Promise.all([
     prisma.user.create({
       data: {
         name: 'Alice',
         email: 'alice@example.com',
-        password: 'password123',
+        password: passwordAlice,
         phone: '11999999999',
         cep: '01001-000',
         points: 100,
@@ -20,7 +26,7 @@ async function main() {
       data: {
         name: 'Bob',
         email: 'bob@example.com',
-        password: 'password456',
+        password: passwordBob,
         phone: '11988888888',
         cep: '02002-000',
         points: 200,
@@ -31,7 +37,7 @@ async function main() {
       data: {
         name: 'Charlie',
         email: 'charlie@example.com',
-        password: 'password789',
+        password: passwordCharlie,
         phone: '11977777777',
         cep: '03003-000',
         points: 300,
