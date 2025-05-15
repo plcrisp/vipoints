@@ -15,7 +15,7 @@ datasource db {
 
 generator erd {
   provider = "prisma-erd-generator"
-  output   = "./diagram/erd.svg"
+  output   = "../docs/erd.svg"
 }
 
 enum UserType {
