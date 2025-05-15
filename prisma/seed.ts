@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { PrismaClient } from '../generated/prisma';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -46,34 +46,6 @@ async function main() {
     }),
   ]);
 
-  // LoyaltyCards
-  await Promise.all([
-    prisma.loyaltyCard.create({
-      data: {
-        userId: users[0].id,
-        category: 'Gold',
-        points: 100,
-        expirationDate: new Date('2025-12-31')
-      }
-    }),
-    prisma.loyaltyCard.create({
-      data: {
-        userId: users[1].id,
-        category: 'Silver',
-        points: 50,
-        expirationDate: new Date('2025-10-31')
-      }
-    }),
-    prisma.loyaltyCard.create({
-      data: {
-        userId: users[2].id,
-        category: 'Bronze',
-        points: 30,
-        expirationDate: new Date('2025-08-31')
-      }
-    }),
-  ]);
-
   // Purchases
   await Promise.all([
     prisma.purchase.create({
@@ -103,7 +75,7 @@ async function main() {
   ]);
 
   // Rewards
-  await Promise.all([
+  const rewards = await Promise.all([
     prisma.reward.create({
       data: {
         name: 'Free Coffee',
@@ -126,6 +98,31 @@ async function main() {
         requiredPoints: 150,
         description: 'Branded T-shirt',
         availableQuantity: 2
+      }
+    }),
+  ]);
+
+  // RewardRedemptions
+  await Promise.all([
+    prisma.rewardRedemption.create({
+      data: {
+        userId: users[0].id,
+        rewardId: rewards[0].id,
+        quantity: 1
+      }
+    }),
+    prisma.rewardRedemption.create({
+      data: {
+        userId: users[1].id,
+        rewardId: rewards[1].id,
+        quantity: 1
+      }
+    }),
+    prisma.rewardRedemption.create({
+      data: {
+        userId: users[2].id,
+        rewardId: rewards[2].id,
+        quantity: 1
       }
     }),
   ]);

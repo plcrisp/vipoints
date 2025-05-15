@@ -45,8 +45,8 @@ model User {
   points             Int
   createdAt          DateTime            @default(now())
   rank               Int
-  loyaltyCard        LoyaltyCard?
   purchases          Purchase[]
+  redemptions        RewardRedemption[]
   notifications      UserNotification[]
   referralSent       ReferralProgram[]   @relation("Referrer")
   referralReceived   ReferralProgram?    @relation("Referee")
@@ -62,21 +62,25 @@ model Purchase {
   pointsEarned Int
 }
 
-model LoyaltyCard {
-  id              String   @id @default(uuid())
-  userId          String   @unique
-  user            User     @relation(fields: [userId], references: [id])
-  category        String
-  points          Int
-  expirationDate  DateTime
-}
-
 model Reward {
   id                String   @id @default(uuid())
   name              String
   requiredPoints    Int
   description       String
   availableQuantity Int
+  redemptions       RewardRedemption[]
+}
+
+model RewardRedemption {
+  id        String   @id @default(uuid())
+  date      DateTime @default(now())
+  quantity  Int      @default(1)
+
+  userId    String
+  rewardId  String
+
+  user      User     @relation(fields: [userId], references: [id])
+  reward    Reward   @relation(fields: [rewardId], references: [id])
 }
 
 model Ranking {

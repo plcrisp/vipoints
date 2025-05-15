@@ -23,12 +23,11 @@ class User {
   cep: string;
   points: number;
   createdAt: Date
-  loyaltyCard: LoyaltyCard;
   purchases: Purchase[];
   rank: number;
 
   makePurchase(purchase: Purchase): void {}
-  redeemReward(reward: Reward): void {}
+  redeemReward(reward: Reward, quantity: number): void {}
   applyDiscount(coupon: DiscountCoupon): void {}
   referFriend(friendEmail: string): void {}
   receiveNotification(notification: UserNotification): void {}
@@ -46,16 +45,12 @@ class Purchase {
   confirmPurchase(): void {}
 }
 
-class LoyaltyCard {
+class RewardRedemption {
   id: string;
-  user: User;
-  category: string; 
-  points: number;
-  expirationDate: Date;
-
-  accumlatePoints(points: number): void {}
-  checkBenefeits(): string[] { return ['']; }
-  upgradeCategory(): void {}
+  userId: string;
+  rewardId: string; 
+  date: Date;
+  qauntity: number;
 }
 
 class Reward {
@@ -65,7 +60,7 @@ class Reward {
   description: string;
   availableQuantity: number;
 
-  redeem(user: User): boolean { return true; }
+  redeem(user: User, quantity: number): boolean { return true; }
   checkAvailability(): boolean { return true; }
 }
 
