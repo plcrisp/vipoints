@@ -13,13 +13,16 @@
   "devDependencies": {
     "@types/bcryptjs": "^3.0.0",
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.18",
     "prisma": "^6.7.0",
     "prisma-erd-generator": "^2.0.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/express": "^4.17.21",
     "bcryptjs": "^3.0.2",
+    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2"
   }
 }
