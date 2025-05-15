@@ -10,8 +10,6 @@ V.I. Points é um sistema de fidelidade e recompensas gamificado que permite que
 
 - 🎁 Resgate de prêmios e cupons de desconto.
 
-- 🏅 Cartão de fidelidade com categorias (Bronze, Prata, Ouro).
-
 - 📊 Rankings competitivos entre os clientes.
 
 - 👥 Programa de indicação para ganhar pontos extras.
@@ -22,11 +20,9 @@ V.I. Points é um sistema de fidelidade e recompensas gamificado que permite que
 
 - Frontend: Angular, Tailwind CSS
 
-- Backend: Firebase (Authentication, Storage)
+- Backend: Node.js + Express + Prisma + JWT + Swagger
 
 - Banco de Dados: PostgreSQL
-
-- Hospedagem: Firebase Hosting
 
 ## 📜 Licença
 
