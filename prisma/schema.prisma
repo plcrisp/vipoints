@@ -63,7 +63,7 @@ model User {
 model Purchase {
   id           String    @id @default(uuid())
   userId       String
-  user         User      @relation(fields: [userId], references: [id])
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount       Float
   date         DateTime
   pointsEarned Int
@@ -86,8 +86,8 @@ model RewardRedemption {
   userId    String
   rewardId  String
 
-  user      User     @relation(fields: [userId], references: [id])
-  reward    Reward   @relation(fields: [rewardId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reward    Reward   @relation(fields: [rewardId], references: [id], onDelete: Cascade)
 }
 
 model Ranking {
@@ -107,7 +107,7 @@ model DiscountCoupon {
 model UserNotification {
   id        String   @id @default(uuid())
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   message   String
   sentDate  DateTime
   read      Boolean  @default(false)
@@ -126,8 +126,8 @@ model ReferralProgram {
   id               String   @id @default(uuid())
   referreringUserId String
   refereeUserId     String   @unique
-  referreringUser   User     @relation("Referrer", fields: [referreringUserId], references: [id])
-  refereeUser       User     @relation("Referee", fields: [refereeUserId], references: [id])
+  referreringUser   User     @relation("Referrer", fields: [referreringUserId], references: [id], onDelete: Cascade)
+  refereeUser       User     @relation("Referee", fields: [refereeUserId], references: [id], onDelete: Cascade)
   rewardPoints      Int
   status            Status
 }
@@ -136,7 +136,7 @@ model Log {
   id           String      @id @default(uuid())
   transaction  Transaction
   userId       String
-  user         User        @relation(fields: [userId], references: [id])
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount       Float
   date         DateTime
 }
