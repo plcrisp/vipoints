@@ -82,7 +82,7 @@ const swaggerDefinition = {
             enum: ['CLIENT', 'ADMIN'],
             default: 'CLIENT',
           },
-          rank: { type: 'string' },
+          rank: { type: 'integer' },
         },
       },
       Reward: {
