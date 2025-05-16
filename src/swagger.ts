@@ -215,7 +215,7 @@ const swaggerDefinition = {
           },
         },
         responses: {
-          200: {
+          204: {
             description: 'Usuário atualizado com sucesso',
             content: {
               'application/json': {
