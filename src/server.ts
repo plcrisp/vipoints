@@ -1,13 +1,16 @@
 import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes';
 import rewardRoutes from './routes/rewardRoutes';
 import rewardRedemptionRoutes from './routes/rewardRedemptionRoutes';
 import userRoutes from './routes/userRoutes';
 import { setupSwagger } from './swagger';
+import { corsOptions } from './config/corsOptions';
 
 dotenv.config();
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/auth', authRoutes);
