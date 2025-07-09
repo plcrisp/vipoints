@@ -9,6 +9,7 @@ async function main() {
   const passwordAlice = await bcrypt.hash('password123', 10);
   const passwordBob = await bcrypt.hash('password456', 10);
   const passwordCharlie = await bcrypt.hash('password789', 10);
+  const passwordPedro = await bcrypt.hash('1234567', 10);
 
   const users = await Promise.all([
     prisma.user.create({
@@ -42,6 +43,18 @@ async function main() {
         cep: '03003-000',
         points: 300,
         rank: 3,
+      }
+    }),
+    prisma.user.create({
+      data: {
+        name: 'Pedro Crisp',
+        email: 'pedrolcrisp@gmail.com',
+        password: passwordPedro,
+        phone: '12997833535',
+        cep: '03003-000',
+        points: 300,
+        rank: 1,
+        user_type: 'SELLER',
       }
     }),
   ]);
